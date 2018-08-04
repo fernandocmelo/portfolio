@@ -60,9 +60,21 @@ body{
   text-align: center;
 }
 
+.rounded-circle{
+  height: 8%;
+  width: 8%;
+}
+
+.IconLinks{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
 #avatar{
   height: 20%;
   width: 20%;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 #division{

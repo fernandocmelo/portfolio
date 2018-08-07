@@ -8,52 +8,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <title>Fernando Melo's Portfolio - Programming</title>
   </head>
+
   <body id="programmingBody">
     <div id="mainContainer" class="container">
       <div id="myjumbo" class="jumbotron">
         <div class="myAvatar">
-          <a href="mailto:fernando.melo.rs@gmail.com?subject=Portfolio" class="IconLinks"><img id="emailIcon" src="{% static "images/email-icon.png" %}" alt="No Image" title="E-mail" class="rounded-circle"></a>
-          <a href="https://linkedin.com/in/fernandocastilhosmelo/" target="_blank" class="IconLinks"><img id="linkedinIcon" src="{% static "images/linkedin-icon.png" %}" alt="No Image" title="LinkedIn" class="rounded-circle"></a>
-          <img id="avatar" src="{% static "images/avatar.jpg" %}" alt="No Image" class="rounded-circle">
-          <a href="https://www.facebook.com/fernandocastilhosmelo" target="_blank" class="IconLinks"><img id="facebookIcon" src="{% static "images/facebook-icon.png" %}" alt="No Image" title="Facebook" class="rounded-circle"></a>
-          <a href="https://twitter.com/nando_shaman" target="_blank" class="IconLinks"><img id="twitterIcon" src="{% static "images/twitter-icon.png" %}" alt="No Image" title="Twitter" class="rounded-circle"></a>
+          {% if social_link %}
+            {% for links in social_link %}
+              {% if links.social == "Avatar" %}
+                <img id="avatar" src="{{ links.image_path }}" alt="{{ links.social }}" class="rounded-circle">
+              {% else %}
+                <a href="{{ links.link }}" target="{{ links.target }}" class="IconLinks"><img src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
 
-        <h1 class="display-4">Hello!</h1>
-        <p class="lead">My name is Fernando Castilhos Melo, welcome to my professional portfolio!</p>
+        {% if user_data %}
+        {% autoescape off %}
+          <h1 class="display-4">{{ user_data.greetings }}</h1>
+          <p class="lead">{{ user_data.intro_text }}</p>
+        {% endautoescape %}
+        {% endif %}
+
         <hr id="division" class="my-4">
 
         <div class="text-center">
           <div id="divBtn" class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label id="opt1" class="btn btn-light active btn-lg">
+            <label id="opt1" class="btn btn-light active btn-lg mylabel">
               <input type="radio" name="options" id="option1" autocomplete="off" checked> Overview
             </label>
-            <label id="opt2" class="btn btn-light btn-lg">
+            <label id="opt2" class="btn btn-light btn-lg mylabel">
               <input type="radio" name="options" id="option2" autocomplete="off"> Oracle
             </label>
-            <label id="opt3" class="btn btn-light btn-lg">
+            <label id="opt3" class="btn btn-light btn-lg mylabel">
               <input type="radio" name="options" id="option3" autocomplete="off"> Python
             </label>
-            <label id="opt4" class="btn btn-light btn-lg">
+            <label id="opt4" class="btn btn-light btn-lg mylabel">
               <input type="radio" name="options" id="option4" autocomplete="off"> Web
             </label>
           </div>
         </div>
-
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="#">Python</a>
-              <a class="nav-item nav-link" href="#">Oracle</a>
-              <a class="nav-item nav-link" href="#">Web</a>
-            </div>
-          </div>
-        </nav> -->
 
         <div id="overview" class="container">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

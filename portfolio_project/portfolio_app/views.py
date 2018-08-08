@@ -7,7 +7,7 @@ def index(request):
 
     social_link = SocialMedia.objects.order_by('order')
 
-    user_desc = PersonalDescription.objects.all()
+    user_desc = PersonalDescription.objects.order_by('order')
 
     personal_dict = {'user_data':user_data,
                      'social_link':social_link,

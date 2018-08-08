@@ -17,3 +17,7 @@ class SocialMedia(models.Model):
 class PersonalDescription(models.Model):
     category = models.CharField(max_length=30,unique=True)
     description = models.TextField()
+    active = models.CharField(max_length=10,blank=True)
+    checked = models.CharField(max_length=10,blank=True)
+    hide = models.CharField(max_length=20,blank=True)
+    order = models.IntegerField(default=100)

@@ -2,13 +2,7 @@ body{
   background: #282c34;
 }
 
-#mainTitle{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  color: #dddddd;
-  text-align: center;
-  line-height: 3;
-}
-
+/*
 .topTitle{
   font-size: 20px;
   height: 18%;
@@ -16,15 +10,64 @@ body{
 }
 
 .mainAbilities{
-  /* border: 3px solid red; */
   padding-top: 3em;
 }
 
 .mainTable{
-  /* border: 3px solid yellow; */
   margin-left:auto;
   margin-right:auto;
   padding-top: 3em;
+}
+*/
+
+.portfolio-backgr{
+  background: #21252b;
+}
+
+.portfolio-avatar{
+  text-align: center;
+}
+
+.rounded-circle{
+  height: 8%;
+  width: 8%;
+}
+
+.icon-links{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.bold-text{
+  font-weight: bold;
+}
+
+.label-descr{
+  width: 150px;
+}
+
+.div-hide{
+  display: none;
+}
+
+.def-div{
+  padding-top: 4%;
+}
+
+#ContainerBackground{
+  background: #21252b;
+}
+
+#JumboBackground{
+  background: #282c34;
+  color: #dddddd;
+}
+
+#mainTitle{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #dddddd;
+  text-align: center;
+  line-height: 3;
 }
 
 #programming{
@@ -43,37 +86,6 @@ body{
   padding: 2.7em 0.7em 2.7em 0.7em;
 }
 
-#programmingBody{
-  background: #21252b;
-}
-
-#mainContainer{
-  background: #21252b;
-}
-
-#myjumbo{
-  background: #282c34;
-  color: #dddddd;
-}
-
-.myAvatar{
-  text-align: center;
-}
-
-.rounded-circle{
-  height: 8%;
-  width: 8%;
-}
-
-.IconLinks{
-  margin-left: 3%;
-  margin-right: 3%;
-}
-
-.bold-text{
-  font-weight: bold;
-}
-
 #avatar{
   height: 20%;
   width: 20%;
@@ -87,12 +99,4 @@ body{
 
 #divBtn{
   text-align: center;
-}
-
-#overview{
-  padding-top: 4%;
-}
-
-.mylabel{
-  width: 150px;
 }

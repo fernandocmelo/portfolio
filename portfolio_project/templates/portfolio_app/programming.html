@@ -5,20 +5,22 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{% static "css/index_master.css" %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="{% static "scripts/programming.js" %}"></script>
     <title>Fernando Melo's Portfolio - Programming</title>
   </head>
 
-  <body id="programmingBody">
-    <div id="mainContainer" class="container">
-      <div id="myjumbo" class="jumbotron">
-        <div class="myAvatar">
+  <body class="portfolio-backgr">
+    <div id="ContainerBackground" class="container">
+      <div id="JumboBackground" class="jumbotron">
+        <div class="portfolio-avatar">
           {% if social_link %}
             {% for links in social_link %}
               {% if links.social == "Avatar" %}
                 <img id="avatar" src="{{ links.image_path }}" alt="{{ links.social }}" class="rounded-circle">
               {% else %}
-                <a href="{{ links.link }}" target="{{ links.target }}" class="IconLinks"><img src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
+                <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -33,30 +35,34 @@
 
         <hr id="division" class="my-4">
 
-        <div class="text-center">
-          <div id="divBtn" class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label id="opt1" class="btn btn-light active btn-lg mylabel">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> Overview
-            </label>
-            <label id="opt2" class="btn btn-light btn-lg mylabel">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Oracle
-            </label>
-            <label id="opt3" class="btn btn-light btn-lg mylabel">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Python
-            </label>
-            <label id="opt4" class="btn btn-light btn-lg mylabel">
-              <input type="radio" name="options" id="option4" autocomplete="off"> Web
-            </label>
+        {% if user_desc %}
+          <div class="text-center">
+            <div id="divBtn" class="btn-group btn-group-toggle" data-toggle="buttons">
+              {%for descr in user_desc %}
+                <label id="{{ descr.category }}" class="btn btn-light btn-lg label-descr portfolio-button {{ descr.active }}">
+                  <input type="radio" name="options" autocomplete="off" {{ descr.checked }}> {{ descr.category }}
+                </label>
+              {% endfor %}
+            </div>
           </div>
-        </div>
 
-        <div id="overview" class="container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+          <!-- <ul class="nav justify-content-center">
+            {%for descr in user_desc %}
+            <li class="nav-item">
+              <a class="nav-link {{ descr.active }}" href="#">{{ descr.category }}</a>
+            </li>
+            {% endfor %}
+          </ul> -->
+
+          {%for descr in user_desc %}
+            <div id="{{ descr.category }}{{ descr.order }}" class="container def-div {{ descr.hide }}">
+              {% autoescape off %}
+              {{ descr.description }}
+              {% endautoescape %}
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
-
   </body>
 </html>

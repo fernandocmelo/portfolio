@@ -6,6 +6,8 @@ class PersonalData(models.Model):
     birth = models.DateField()
     greetings = models.CharField(max_length=100,default="Greetings")
     intro_text = models.TextField(default="Intro Text")
+    location = models.CharField(max_length=30,default="Toronto, ON")
+    loc_icon = models.CharField(max_length=100,default="images/location-icon")
 
 class SocialMedia(models.Model):
     social = models.CharField(max_length=30,unique=True)

@@ -1,7 +1,7 @@
 /* xs < 768 */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (orientation : portrait) {
     body {
-      font-size: 0.9em;
+      font-size: 0.85em;
     }
     .h1-portfolio {
       font-size: 2.6em;
@@ -10,16 +10,72 @@
       font-size: 1.1em;
     }
     .portfolio-content{
-      min-height: 460px;
-      width: 300px;
+      min-height: 530px;
+      width: 75%;
       margin: 0 auto;
+      text-align: justify;
+    }
+    .portfolio-jumbotron{
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+    .div-mobile{
+      display: block;
+      margin-bottom: 5%;
+    }
+    .div-desktop{
+      display: none;
+    }
+    .rounded-circle{
+      height: 17%;
+      width: 17%;
+    }
+    #GitHub{
+      height: 35%;
+      width: 35%;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation : landscape) {
+    body {
+      font-size: 0.95em;
+    }
+    .h1-portfolio {
+      font-size: 2.6em;
+    }
+    .lead-portfolio{
+      font-size: 1.1em;
+    }
+    .portfolio-content{
+      min-height: 380px;
+      width: 78%;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    .portfolio-jumbotron{
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+    .div-mobile{
+      display: none;
+    }
+    .div-desktop{
+      display: block;
+    }
+    .rounded-circle{
+      height: 10%;
+      width: 10%;
+    }
+    #GitHub{
+      height: 25%;
+      width: 25%;
     }
 }
 
 /* sm */
 @media screen and (min-width: 768px) {
     body {
-      font-size: 0.9em;
+      font-size: 0.95em;
     }
     .h1-portfolio {
       font-size: 2.8em;
@@ -29,8 +85,27 @@
     }
     .portfolio-content{
       min-height: 380px;
-      width: 450px;
+      width: 78%;
       margin: 0 auto;
+      text-align: justify;
+    }
+    .portfolio-jumbotron{
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .div-mobile{
+      display: none;
+    }
+    .div-desktop{
+      display: block;
+    }
+    .rounded-circle{
+      height: 8%;
+      width: 8%;
+    }
+    #GitHub{
+      height: 20%;
+      width: 20%;
     }
 }
 
@@ -47,8 +122,13 @@
     }
     .portfolio-content{
       min-height: 360px;
-      width: 620px;
+      width: 78%;
       margin: 0 auto;
+      text-align: justify;
+    }
+    .portfolio-jumbotron{
+      margin-left: 10%;
+      margin-right: 10%;
     }
 }
 
@@ -65,13 +145,22 @@
     }
     .portfolio-content{
       min-height: 360px;
-      width: 750px;
+      width: 78%;
       margin: 0 auto;
+      text-align: justify;
+    }
+    .portfolio-jumbotron{
+      margin-left: 20%;
+      margin-right: 20%;
     }
 }
 
 body{
   background: #282c34;
+}
+
+.lead-portfolio{
+  text-align: justify;
 }
 
 .portfolio-div{
@@ -93,11 +182,6 @@ body{
 
 .portfolio-container{
   background: #21252b;
-}
-
-.rounded-circle{
-  height: 8%;
-  width: 8%;
 }
 
 .icon-links{
@@ -136,8 +220,6 @@ body{
    background-repeat: no-repeat;
    background-size: contain;
    transition: .5s ease;
-   height: 20%;
-   width: 20%;
 }
 
 #GitHub:hover {

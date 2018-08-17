@@ -3,8 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "css/index_master.css" %}">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -14,48 +13,42 @@
   </head>
 
   <body class="portfolio-backgr">
-    <div class="container portfolio-container">
+    <!-- <div class="container portfolio-container"> -->
       <div class="jumbotron portfolio-jumbotron">
-        <div class="portfolio-avatar">
+        <div class="portfolio-avatar div-desktop">
           {% if social_link %}
             {% for links in social_link %}
                 <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img id="{{ links.social }}" src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
             {% endfor %}
           {% endif %}
         </div>
+        <div class="div-mobile">
+          <div class="portfolio-avatar">
+            {% if github_link %}
+              <a href="{{ github_link.link }}" target="{{ github_link.target }}" class="icon-links"><img id="{{ github_link.social }}" src="{{ github_link.image_path }}" alt="{{ github_link.social }}" title="{{ github_link.social }}" class="rounded-circle"></a>
+            {% endif %}
+          </div>
+          <div class="portfolio-avatar">
+            {% if social_link %}
+              {% for links in social_link %}
+                {% if links.social != 'GitHub' %}
+                  <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img id="{{ links.social }}" src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
 
         {% if user_data %}
         {% autoescape off %}
           <h1 class="display-4 h1-portfolio">{{ user_data.greetings }}</h1>
           <p class="lead lead-portfolio">{{ user_data.intro_text }}</p>
-          <!-- <div class="container">
-            <p class="lead lead-portfolio"><img class="portfolio-icon-small" src="/static/images/id-icon.png" alt="Name Icon"><span class="bold-text">Name: </span>{{ user_data.name }}</p>
-            <p class="lead lead-portfolio"><img class="portfolio-icon-small" src="/static/images/role-icon.png" alt="Role Icon"><span class="bold-text">Role: </span>Software Developer</p>
-            <p class="lead lead-portfolio"><img class="portfolio-icon-small" src="{{ user_data.loc_icon }}" alt="Location Icon"><span class="bold-text">Location: </span>{{ user_data.location }}</p>
-          </div> -->
-
         {% endautoescape %}
         {% endif %}
 
         <hr id="division" class="my-4">
-
         {% if user_desc %}
-          <!-- <div class="text-center">
-            <div>
-              {%for descr in user_desc %}
-                <button id="{{ descr.category }}" type="button" class="btn btn-light btn-lg portfolio-button"> {{ descr.category }} </button>
-              {% endfor %}
-            </div>
-          </div>
-
-          {%for descr in user_desc %}
-            <div id="{{ descr.category }}{{ descr.order }}" class="container def-div {{ descr.hide }}">
-              {% autoescape off %}
-              {{ descr.description }}
-              {% endautoescape %}
-            </div>
-          {% endfor %} -->
-
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               {%for descr in user_desc %}
@@ -66,7 +59,7 @@
               {%for descr in user_desc %}
               <div class="carousel-item {{ descr.active }}">
                 <div class="container">
-                  <h1 class="display-4 text-center">{{ descr.category }}</h1>
+                  <h1 class="display-4 h1-portfolio text-center">{{ descr.category }}</h1>
                   <div class="portfolio-div">
                     {% autoescape off %}
                     {{ descr.description }}
@@ -88,6 +81,6 @@
 
         {% endif %}
       </div>
-    </div>
+    <!-- </div> -->
   </body>
 </html>

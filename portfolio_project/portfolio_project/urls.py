@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from portfolio_app import views
+from portfolio_project import settings
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('admin/', admin.site.urls),
 ]
+
+if settings.ADMIN_ENABLED:
+    urlpatterns += [path('admin/', admin.site.urls)]

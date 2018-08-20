@@ -69,7 +69,7 @@
       padding-right: 3%;
     }
     .rounded-circle{
-      width: 20%;
+      width: 12%;
     }
     .div-head{
       margin: auto;
@@ -80,8 +80,8 @@
       padding: 10px;
     }
     .icon-links{
-      margin-left: 8%;
-      margin-right: 8%;
+      margin-left: 6%;
+      margin-right: 6%;
     }
     #Avatar{
       width: 100%;
@@ -118,7 +118,7 @@
       padding-right: 3%;
     }
     .rounded-circle{
-      width: 10%;
+      width: 9%;
     }
     .div-head{
       margin: auto;
@@ -159,7 +159,10 @@
       margin-right: 15%;
     }
     .rounded-circle{
-      width: 9%;
+      width: 8%;
+    }
+    #Avatar{
+      width: 90%;
     }
 }
 
@@ -181,7 +184,10 @@
       text-align: justify;
     }
     .rounded-circle{
-      width: 8%;
+      width: 7%;
+    }
+    #Avatar{
+      width: 80%;
     }
 }
 
@@ -244,18 +250,20 @@ body{
   border-color: #666666;
 }
 
-/* #GitHub {
-   background-image: url('/static/images/avatar.jpg');
+.rounded-circle{
+   /* background-image: url('/static/images/avatar.jpg');
    background-repeat: no-repeat;
    background-size: contain;
-   transition: .5s ease;
+   transition: .5s ease; */
+   background-color: inherit;
 }
 
-#GitHub:hover {
-   background-image: url('/static/images/github-icon.png');
+.rounded-circle:hover {
+   /* background-image: url('/static/images/github-icon.png');
    background-size: contain;
-   background-repeat: no-repeat;
-} */
+   background-repeat: no-repeat; */
+   background-image: radial-gradient(circle, #808080, #282c34);
+}
 
 /*
 .topTitle{

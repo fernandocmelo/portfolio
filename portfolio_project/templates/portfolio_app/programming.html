@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "css/index_master.css" %}">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="{% static "scripts/programming.js" %}"></script>
-    <title>Portfolio - Fernando Castilhos Melo</title>
+    <title>Fernando Castilhos Melo - Personal Website</title>
   </head>
 
   <body class="portfolio-backgr">
@@ -19,7 +20,7 @@
           <div class="row">
             <div class="col-3 div-head">
               {% if avatar_link %}
-                <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" title="{{ avatar_link.social }}" class="rounded-circle">
+                <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" class="rounded-circle">
               {% endif %}
             </div>
             <div class="col-9 div-head">
@@ -47,7 +48,7 @@
         <div class="div-mobile">
           <div class="portfolio-avatar padbot-3">
             {% if avatar_link %}
-              <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" title="{{ avatar_link.social }}" class="rounded-circle">
+              <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" class="rounded-circle">
             {% endif %}
           </div>
           <div class="portfolio-avatar">

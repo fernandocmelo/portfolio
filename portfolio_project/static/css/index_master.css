@@ -27,12 +27,16 @@
       display: none;
     }
     .rounded-circle{
-      height: 17%;
-      width: 17%;
+      height: 15%;
+      width: 15%;
     }
-    #GitHub{
-      height: 35%;
+    .icon-links{
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+    #Avatar{
       width: 35%;
+      height: 35%;
     }
 }
 
@@ -61,14 +65,26 @@
     }
     .div-desktop{
       display: block;
+      padding-left: 3%;
+      padding-right: 3%;
     }
     .rounded-circle{
-      height: 10%;
-      width: 10%;
+      width: 20%;
     }
-    #GitHub{
-      height: 25%;
-      width: 25%;
+    .div-head{
+      margin: auto;
+      padding: 10px;
+    }
+    .center-span{
+      margin: auto;
+      padding: 10px;
+    }
+    .icon-links{
+      margin-left: 8%;
+      margin-right: 8%;
+    }
+    #Avatar{
+      width: 100%;
     }
 }
 
@@ -90,22 +106,34 @@
       text-align: justify;
     }
     .portfolio-jumbotron{
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 10%;
+      margin-right: 10%;
     }
     .div-mobile{
       display: none;
     }
     .div-desktop{
       display: block;
+      padding-left: 3%;
+      padding-right: 3%;
     }
     .rounded-circle{
-      height: 8%;
-      width: 8%;
+      width: 10%;
     }
-    #GitHub{
-      height: 20%;
-      width: 20%;
+    .div-head{
+      margin: auto;
+      padding: 10px;
+    }
+    .center-span{
+      margin: auto;
+      padding: 10px;
+    }
+    .icon-links{
+      margin-left: 8%;
+      margin-right: 8%;
+    }
+    #Avatar{
+      width: 100%;
     }
 }
 
@@ -127,8 +155,11 @@
       text-align: justify;
     }
     .portfolio-jumbotron{
-      margin-left: 10%;
-      margin-right: 10%;
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+    .rounded-circle{
+      width: 9%;
     }
 }
 
@@ -149,9 +180,8 @@
       margin: 0 auto;
       text-align: justify;
     }
-    .portfolio-jumbotron{
-      margin-left: 20%;
-      margin-right: 20%;
+    .rounded-circle{
+      width: 8%;
     }
 }
 
@@ -175,6 +205,10 @@ body{
   text-align: center;
 }
 
+.padbot-3{
+  padding-bottom: 3%;
+}
+
 .portfolio-jumbotron{
   background: #282c34;
   color: #dddddd;
@@ -182,11 +216,6 @@ body{
 
 .portfolio-container{
   background: #21252b;
-}
-
-.icon-links{
-  margin-left: 3%;
-  margin-right: 3%;
 }
 
 .bold-text{
@@ -215,7 +244,7 @@ body{
   border-color: #666666;
 }
 
-#GitHub {
+/* #GitHub {
    background-image: url('/static/images/avatar.jpg');
    background-repeat: no-repeat;
    background-size: contain;
@@ -226,7 +255,7 @@ body{
    background-image: url('/static/images/github-icon.png');
    background-size: contain;
    background-repeat: no-repeat;
-}
+} */
 
 /*
 .topTitle{

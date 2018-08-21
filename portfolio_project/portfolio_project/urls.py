@@ -19,7 +19,7 @@ from portfolio_app import views
 from portfolio_project import settings
 
 urlpatterns = [
-    path('',views.index,name='index'),
+    path('',views.IndexView.as_view()),
 ]
 
 if settings.ADMIN_ENABLED:

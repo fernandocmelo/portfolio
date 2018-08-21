@@ -7,13 +7,13 @@ def index(request):
 
     social_link = SocialMedia.objects.order_by('order')
 
-    github_link = SocialMedia.objects.get(social__icontains='GitHub')
+    avatar_link = SocialMedia.objects.get(social__icontains='Avatar')
 
     user_desc = PersonalDescription.objects.order_by('order')
 
     personal_dict = {'user_data':user_data,
                      'social_link':social_link,
-                     'github_link':github_link,
+                     'avatar_link':avatar_link,
                      'user_desc':user_desc}
 
     return render(request,'portfolio_app/programming.html',context=personal_dict)

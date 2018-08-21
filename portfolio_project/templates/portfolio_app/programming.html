@@ -6,46 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "css/index_master.css" %}">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="{% static "scripts/programming.js" %}"></script>
-    <title>Portfolio - Fernando Castilhos Melo</title>
+    <title>Fernando Castilhos Melo - Personal Website</title>
   </head>
 
   <body class="portfolio-backgr">
     <!-- <div class="container portfolio-container"> -->
       <div class="jumbotron portfolio-jumbotron">
-        <div class="portfolio-avatar div-desktop">
-          {% if social_link %}
-            {% for links in social_link %}
-                <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img id="{{ links.social }}" src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
-            {% endfor %}
-          {% endif %}
-        </div>
-        <div class="div-mobile">
+        <div class="div-desktop">
+          <div class="row">
+            <div class="col-3 div-head">
+              {% if avatar_link %}
+                <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" class="rounded-circle">
+              {% endif %}
+            </div>
+            <div class="col-9 div-head">
+              {% if user_data %}
+              {% autoescape off %}
+                <span class="center-span">
+                <h1 class="display-4 h1-portfolio">{{ user_data.greetings }}</h1>
+                <p class="lead lead-portfolio">{{ user_data.intro_text }}</p>
+                </span>
+              {% endautoescape %}
+              {% endif %}
+            </div>
+          </div>
           <div class="portfolio-avatar">
-            {% if github_link %}
-              <a href="{{ github_link.link }}" target="{{ github_link.target }}" class="icon-links"><img id="{{ github_link.social }}" src="{{ github_link.image_path }}" alt="{{ github_link.social }}" title="{{ github_link.social }}" class="rounded-circle"></a>
+            {% if social_link %}
+              {% for links in social_link %}
+                {% if links.social != 'Avatar' %}
+                  <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img id="{{ links.social }}" src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="div-mobile">
+          <div class="portfolio-avatar padbot-3">
+            {% if avatar_link %}
+              <img id="{{ avatar_link.social }}" src="{{ avatar_link.image_path }}" alt="{{ avatar_link.social }}" class="rounded-circle">
             {% endif %}
           </div>
           <div class="portfolio-avatar">
             {% if social_link %}
               {% for links in social_link %}
-                {% if links.social != 'GitHub' %}
+                {% if links.social != 'Avatar' %}
                   <a href="{{ links.link }}" target="{{ links.target }}" class="icon-links"><img id="{{ links.social }}" src="{{ links.image_path }}" alt="{{ links.social }}" title="{{ links.social }}" class="rounded-circle"></a>
                 {% endif %}
               {% endfor %}
             {% endif %}
           </div>
 
+          {% if user_data %}
+          {% autoescape off %}
+            <h1 class="display-4 h1-portfolio">{{ user_data.greetings }}</h1>
+            <p class="lead lead-portfolio">{{ user_data.intro_text }}</p>
+          {% endautoescape %}
+          {% endif %}
         </div>
-
-        {% if user_data %}
-        {% autoescape off %}
-          <h1 class="display-4 h1-portfolio">{{ user_data.greetings }}</h1>
-          <p class="lead lead-portfolio">{{ user_data.intro_text }}</p>
-        {% endautoescape %}
-        {% endif %}
 
         <hr id="division" class="my-4">
         {% if user_desc %}
